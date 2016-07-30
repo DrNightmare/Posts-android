@@ -1,16 +1,15 @@
 package com.example.night.posts;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Post {
+class Post {
 
     private Integer userId;
     private Integer id;
     private String title;
     private String body;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private final Map<String, Object> additionalProperties = new HashMap<>();
 
     public Post(Integer userId, Integer id, String title, String body) {
         this.userId = userId;
@@ -99,14 +98,14 @@ public class Post {
         this.additionalProperties.put(name, value);
     }
 
-    public static ArrayList<Post> createDummyPosts(int numPosts) {
-        ArrayList<Post> dummyPosts = new ArrayList<Post>();
-
-        for (int i = 1; i <= numPosts; i++) {
-            dummyPosts.add(new Post(1, i, "Title " + i, "Random post body " + i));
-        }
-
-        return dummyPosts;
-    }
+//    public static ArrayList<Post> createDummyPosts(int numPosts) {
+//        ArrayList<Post> dummyPosts = new ArrayList<Post>();
+//
+//        for (int i = 1; i <= numPosts; i++) {
+//            dummyPosts.add(new Post(1, i, "Title " + i, "Random post body " + i));
+//        }
+//
+//        return dummyPosts;
+//    }
 
 }

@@ -5,10 +5,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -21,7 +17,7 @@ public class MainActivity extends AppCompatActivity{
 
     private PostsAdapter postsAdapter;
     private RecyclerView rvPosts;
-    public static final String BASE_URL = "http://jsonplaceholder.typicode.com/";
+    private static final String BASE_URL = "http://jsonplaceholder.typicode.com/";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +28,7 @@ public class MainActivity extends AppCompatActivity{
 
     private void initViews() {
         rvPosts = (RecyclerView) findViewById(R.id.rvPosts);
+        assert rvPosts != null;
         rvPosts.setHasFixedSize(true);
         rvPosts.setLayoutManager(new LinearLayoutManager(this));
         loadJSON();

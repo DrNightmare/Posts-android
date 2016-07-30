@@ -8,20 +8,18 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Locale;
 
-/**
- * Created by night on 12/7/16.
- */
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
 
-    private Context mContext;
-    private List<Post> mPosts;
+    private final Context mContext;
+    private final List<Post> mPosts;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView titleTextView;
-        public TextView bodyTextView;
-        public TextView numberView;
+        public final TextView titleTextView;
+        public final TextView bodyTextView;
+        public final TextView numberView;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -48,7 +46,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         Post post = mPosts.get(position);
 
         TextView postNumber = holder.numberView;
-        postNumber.setText(Integer.toString(position + 1));
+        postNumber.setText(String.format(Locale.US, "%d", position + 1));
 
         TextView postTitle = holder.titleTextView;
         postTitle.setText(post.getTitle());
@@ -70,7 +68,6 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
         View postView = inflater.inflate(R.layout.post_layout, parent, false);
 
-        ViewHolder viewHolder = new ViewHolder(postView);
-        return viewHolder;
+        return new ViewHolder(postView);
     }
 }
